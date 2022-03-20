@@ -32,6 +32,11 @@ Plug 'akinsho/toggleterm.nvim'
 
 " git blame
 Plug 'f-person/git-blame.nvim'
+
+Plug 'nathom/filetype.nvim'
+
+Plug 'github/copilot.vim'
+
 call plug#end()
 
 
@@ -41,7 +46,58 @@ set smarttab
 set shiftwidth=2
 set tabstop=2
 
-"Set mapleader
+" set autoindent
+set nofoldenable
+set foldlevel=99
+set fillchars=fold:\
+set foldtext=CustomFoldText()
+setlocal foldmethod=expr
+setlocal foldexpr=GetPotionFold(v:lnum)
+function! GetPotionFold(lnum)
+  if getline(a:lnum) =~? '\v^\s*$'
+    return '-1'
+  endif
+  let this_indent = IndentLevel(a:lnum)
+  let next_indent = IndentLevel(NextNonBlankLine(a:lnum))
+  if next_indent == this_indent
+    return this_indent
+  elseif next_indent < this_indent
+    return this_indent
+  elseif next_indent > this_indent
+    return '>' . next_indent
+  endif
+endfunction
+function! IndentLevel(lnum)
+    return indent(a:lnum) / &shiftwidth
+endfunction
+function! NextNonBlankLine(lnum)
+  let numlines = line('$')
+  let current = a:lnum + 1
+  while current <= numlines
+      if getline(current) =~? '\v\S'
+          return current
+      endif
+      let current += 1
+  endwhile
+  return -2
+endfunction
+function! CustomFoldText()
+  " get first non-blank line
+  let fs = v:foldstart
+  while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
+  endwhile
+  if fs > v:foldend
+      let line = getline(v:foldstart)
+  else
+      let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
+  endif
+  let w = winwidth(0) - &foldcolumn - (&number ? 8 : 0)
+  let foldSize = 1 + v:foldend - v:foldstart
+  let foldSizeStr = " " . foldSize . " lines "
+  let foldLevelStr = repeat("+--", v:foldlevel)
+  let expansionString = repeat(" ", w - strwidth(foldSizeStr.line.foldLevelStr))
+  return line . expansionString . foldSizeStr . foldLevelStr
+endfunction"Set mapleader
 let mapleader = ";"
 let g:mapleader = ";"
 
@@ -139,6 +195,22 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 map <C-v> <C-W>v
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -263,6 +335,10 @@ autocmd TermEnter term://*toggleterm#*
 nnoremap <silent><leader>tt <Cmd>exe v:count1 . "ToggleTerm"<CR>
 inoremap <silent><leader>tt <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 nnoremap <silent><leader>gg <Cmd>lua _LAZYGIT_TOGGLE()<CR>
+
+" copilot settings
+imap <silent><script><expr> <C-e> copilot#Accept('\<CR>')
+let g:copilot_no_tab_map = v:true
 
 " 引入 lua 配置
 lua require('config')
