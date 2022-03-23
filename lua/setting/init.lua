@@ -1,7 +1,7 @@
-require('setting.basic.init')
-require('setting.colorscheme.init')
-require('setting.keybindings.init')
-require('setting.lsp-package.init')
+require('setting.plugins')
+require('setting.basic')
+require('setting.colorscheme')
+require('setting.keybindings')
 require('setting.plugin-config')
-require('setting.plugins.init')
+require('setting.lsp-package')
 
