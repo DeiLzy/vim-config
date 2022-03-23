@@ -1,0 +1,8 @@
+require('lua.setting.plugin-config.bufferline')
+require('lua.setting.plugin-config.lualine')
+require('lua.setting.plugin-config.telescope')
+require('lua.setting.plugin-config.treesitter')
+require('lua.setting.plugin-config.autopairs')
+require('lua.setting.plugin-config.which-key')
+require('lua.setting.plugin-config.tree')
+require('lua.setting.plugin-config.toggleterm')

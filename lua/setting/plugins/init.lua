@@ -3,6 +3,23 @@ packer.startup({
   function(use)
     -- Packer 可以管理自己本身
     use 'wbthomason/packer.nvim'
+    use {
+      "folke/which-key.nvim",
+      config = function()
+        require("which-key").setup {}
+    end
+    }
+    use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function()
+      require("trouble").setup {}
+    end
+}
+    use 'windwp/nvim-ts-autotag'
+    use 'p00f/nvim-ts-rainbow'
+
+    use 'windwp/nvim-autopairs'
     
     -- telescope （新增）
     use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
@@ -10,6 +27,7 @@ packer.startup({
     -- bufferline (新增)
     use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" }})
 
+    use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
 
     use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 
@@ -20,6 +38,7 @@ packer.startup({
     use 'christoomey/vim-tmux-navigator'
 
     use 'akinsho/toggleterm.nvim'
+
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
@@ -41,7 +60,13 @@ packer.startup({
     
     use 'github/copilot.vim'
 
-    -- 你的插件列表...
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+
+    use 'onsails/lspkind-nvim'
   end,
   config = {
     -- 并发数限制
