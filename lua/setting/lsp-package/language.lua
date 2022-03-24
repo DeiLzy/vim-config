@@ -35,6 +35,7 @@ local on_attach = function(client, bufnr)
   map(0, "n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", {silent = true, noremap = true})
   map(0, "n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
   map(0, "n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})
+  client.resolved_capabilities.document_formatting = false
 end
 
 local lsp_installer = require("nvim-lsp-installer")

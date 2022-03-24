@@ -45,7 +45,8 @@ packer.startup({
 
 
     -- autosave
-    use "lukas-reineke/lsp-format.nvim"
+    -- use "lukas-reineke/lsp-format.nvim"
+    use 'jose-elias-alvarez/null-ls.nvim' 
 
     use 'glepnir/dashboard-nvim'
 
