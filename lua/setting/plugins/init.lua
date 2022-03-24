@@ -19,8 +19,13 @@ packer.startup({
     use 'windwp/nvim-ts-autotag'
     use 'p00f/nvim-ts-rainbow'
 
+    use 'glepnir/dashboard-nvim'
+
     use 'windwp/nvim-autopairs'
     
+    -- project
+    use("ahmedkhalf/project.nvim")
+
     -- telescope （新增）
     use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
 

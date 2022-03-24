@@ -2,6 +2,9 @@ local map = vim.api.nvim_set_keymap
 -- 复用 opt 参数
 local opt = {noremap = true, silent = true }
 
+-- 全文缩进
+map('n', '<leader>de', 'gg=G<C-o>', opt)
+
 map("i", "jk", "<ESC>", opt)
 map("i", "kj", "<ESC>", opt)
 

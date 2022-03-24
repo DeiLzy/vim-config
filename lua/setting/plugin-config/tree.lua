@@ -48,6 +48,14 @@ nvim_tree.setup {
   open_on_tab = false,
   hijack_cursor = false,
   update_cwd = true,
+
+  -- project plugin 需要这样设置
+  update_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_cwd = true,
+  },
+
   update_to_buf_dir = {
     enable = true,
     auto_open = true,
