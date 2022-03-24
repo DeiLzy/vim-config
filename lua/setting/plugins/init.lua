@@ -7,22 +7,50 @@ packer.startup({
       "folke/which-key.nvim",
       config = function()
         require("which-key").setup {}
-    end
+      end
     }
+
     use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
-      require("trouble").setup {}
-    end
-}
+        require("trouble").setup {}
+      end
+    }
+
+    use {
+      'lewis6991/gitsigns.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim'
+      },
+      config = function()
+        require('gitsigns').setup{
+          current_line_blame = true
+        }
+      end
+    }
+
+    use { 'tami5/lspsaga.nvim' }  -- nightly
+
+    use 'terrortylor/nvim-comment'
+
+    use 'norcalli/nvim-colorizer.lua'
+
+    use 'L3MON4D3/LuaSnip'
+
+    use 'mattn/emmet-vim'
+
     use 'windwp/nvim-ts-autotag'
     use 'p00f/nvim-ts-rainbow'
+
+
+    -- autosave
+    use "lukas-reineke/lsp-format.nvim"
 
     use 'glepnir/dashboard-nvim'
 
     use 'windwp/nvim-autopairs'
-    
+
     -- project
     use("ahmedkhalf/project.nvim")
 
@@ -33,6 +61,7 @@ packer.startup({
     use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" }})
 
     use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
+    use 'williamboman/nvim-lsp-installer'
 
     use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 
@@ -45,8 +74,8 @@ packer.startup({
     use 'akinsho/toggleterm.nvim'
 
     use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate'
     }
 
     use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
@@ -61,8 +90,8 @@ packer.startup({
 
     use 'Konfekt/FastFold'
 
-    use 'f-person/git-blame.nvim'
-    
+    -- use 'f-person/git-blame.nvim'
+
     use 'github/copilot.vim'
 
     use 'hrsh7th/cmp-path'
@@ -70,6 +99,8 @@ packer.startup({
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/vim-vsnip'
+    use 'hrsh7th/vim-vsnip-integ'
 
     use 'onsails/lspkind-nvim'
   end,
@@ -84,9 +115,9 @@ packer.startup({
       -- default_url_format = "https://gitclone.com/github.com/%s",
     },
     display = {
-        open_fn = function()
-            return require("packer.util").float({ border = "single" })
-        end,
+      open_fn = function()
+        return require("packer.util").float({ border = "single" })
+      end,
     },
   },
 })

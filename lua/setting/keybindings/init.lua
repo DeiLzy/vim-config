@@ -1,4 +1,5 @@
 local map = vim.api.nvim_set_keymap
+
 -- 复用 opt 参数
 local opt = {noremap = true, silent = true }
 
@@ -93,3 +94,4 @@ telescopeList = {
     ["<C-d>"] = "preview_scrolling_down",
   },
 }
+

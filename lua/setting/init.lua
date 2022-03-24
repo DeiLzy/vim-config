@@ -1,4 +1,4 @@
-   require('setting.plugins')
+require('setting.plugins')
 require('setting.basic')
 require('setting.colorscheme')
 require('setting.keybindings')
