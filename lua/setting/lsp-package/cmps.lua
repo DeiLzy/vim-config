@@ -9,21 +9,22 @@ local feedkey = function(key, mode)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
-
 local cmp = require'cmp'
+local snip_status_ok, luasnip= pcall(require, 'luasnip')
 local lspkind = require('lspkind')
+
+
+require("luasnip.loaders.from_snipmate").lazy_load()
 
 cmp.setup({
   snippet = {
-    -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      luasnip.lsp_expand(args.body)
     end,
   },
   mapping = {
+    ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item()),
+    ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item()),
     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
@@ -55,20 +56,42 @@ cmp.setup({
   },
   sources = cmp.config.sources(
   {
-    { name = 'nvim_lsp' },
-    { name = 'vsnip' }, -- For vsnip users.
-    },
-  {
+    { name = 'luasnip'},
     { name = 'buffer' },
+    { name ='path'}
     }
   ),
+  sources = cmp.config.sources({
+  { name = 'nvim_lsp' },
+  { name = 'luasnip' }, 
+  }, {
+    { name = 'buffer' },
+    }, {
+    { name = 'path' },
+    }),
   formatting = {
+    fileds =  {'menu' },
     format = lspkind.cmp_format({
       mode = 'symbol', -- show only symbol annotations
       maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
       with_text =  true
-    })
-  }
+    }),
+    before = function (entry, vim_item)
+      vim_item.menu = ({
+        luasnip = '[Luasnip]',
+        buffer = '[File]',
+        path = '[Path]'
+      })[entry.source.name]
+      return vim_item
+    end
+  },
+  documentation = {
+    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  },
+  experimental = {
+    ghost_text = false,
+    native_menu = false,
+  },
 })
 
 -- Set configuration for specific filetype.
@@ -82,8 +105,8 @@ cmp.setup.filetype('gitcommit', {
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
-  sources = {
-  { name = 'buffer' }
+  sources = {{ 
+    name = 'buffer' }
   }
 })
 

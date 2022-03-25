@@ -3,6 +3,7 @@ packer.startup({
   function(use)
     -- Packer 可以管理自己本身
     use 'wbthomason/packer.nvim'
+
     use {
       "folke/which-key.nvim",
       config = function()
@@ -10,13 +11,22 @@ packer.startup({
       end
     }
 
-    use {
-      "folke/trouble.nvim",
-      requires = "kyazdani42/nvim-web-devicons",
-      config = function()
-        require("trouble").setup {}
-      end
-    }
+    -- use 'dense-analysis/ale'
+
+    use 'jose-elias-alvarez/null-ls.nvim'
+
+    -- use {
+    --   "folke/trouble.nvim",
+    --   requires = "kyazdani42/nvim-web-devicons",
+    --   config = function()
+    --     require("trouble").setup {}
+    --   end
+    -- }
+
+
+    use 'glepnir/dashboard-nvim'
+
+    use "lukas-reineke/indent-blankline.nvim"
 
     use {
       'lewis6991/gitsigns.nvim',
@@ -29,6 +39,7 @@ packer.startup({
         }
       end
     }
+    use 'nvim-lua/popup.nvim'
 
     use { 'tami5/lspsaga.nvim' }  -- nightly
 
@@ -42,13 +53,6 @@ packer.startup({
 
     use 'windwp/nvim-ts-autotag'
     use 'p00f/nvim-ts-rainbow'
-
-
-    -- autosave
-    -- use "lukas-reineke/lsp-format.nvim"
-    use 'jose-elias-alvarez/null-ls.nvim' 
-
-    use 'glepnir/dashboard-nvim'
 
     use 'windwp/nvim-autopairs'
 

@@ -2,6 +2,7 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = {"javascript", "html", "css","typescript", "vue", "rust", "solidity", "tsx", "lua"},
 
   ignore_install = { "php", "phpDoc" },
+
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,

@@ -1,7 +1,7 @@
 let mapleader = ";"
 let g:mapleader = ";"
 set mouse=a
- 
+
 cnoremap <C-n> <down>
 cnoremap <C-p> <up>
 
@@ -50,16 +50,16 @@ function! GetPotionFold(lnum)
   endif
 endfunction
 function! IndentLevel(lnum)
-    return indent(a:lnum) / &shiftwidth
+  return indent(a:lnum) / &shiftwidth
 endfunction
 function! NextNonBlankLine(lnum)
   let numlines = line('$')
   let current = a:lnum + 1
   while current <= numlines
-      if getline(current) =~? '\v\S'
-          return current
-      endif
-      let current += 1
+    if getline(current) =~? '\v\S'
+      return current
+    endif
+    let current += 1
   endwhile
   return -2
 endfunction
@@ -69,9 +69,9 @@ function! CustomFoldText()
   while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
   endwhile
   if fs > v:foldend
-      let line = getline(v:foldstart)
+    let line = getline(v:foldstart)
   else
-      let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
+    let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
   endif
   let w = winwidth(0) - &foldcolumn - (&number ? 8 : 0)
   let foldSize = 1 + v:foldend - v:foldstart
@@ -81,29 +81,44 @@ function! CustomFoldText()
   return line . expansionString . foldSizeStr . foldLevelStr
 endfunction
 
+" " Ale
+" let g:ale_fixers = {
+" \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+" \   'javascript': ['eslint', 'prettier'],
+" \   'typescript': ['eslint', 'prettier'],
+" \   'css': ['eslint', 'prettier'],
+" \   'less': ['eslint', 'prettier'],
+" \   'tsx': ['eslint', 'prettier'],
+" \   'jsx': ['eslint', 'prettier'],
+" \   'vue': ['eslint', 'prettier'],
+" \   'scss': ['eslint', 'prettier'],
+" \}
+" " Set this variable to 1 to fix files when you save them.
+" let g:ale_fix_on_save = 1
+
+
+
 " emmet
 let g:user_emmet_settings = {
-\  'variables': {'lang': 'ja'},
-\  'html': {
-\    'default_attributes': {
-\      'option': {'value': v:null},
-\      'textarea': {'id': v:null, 'name': v:null, 'cols': 10, 'rows': 10},
-\    },
-\    'snippets': {
-\      'html:5': "<!DOCTYPE html>\n"
-\              ."<html lang=\"${lang}\">\n"
-\              ."<head>\n"
-\              ."\t<meta charset=\"${charset}\">\n"
-\              ."\t<title></title>\n"
-\              ."\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
-\              ."</head>\n"
-\              ."<body>\n\t${child}|\n</body>\n"
-\              ."</html>",
-\    },
-\  },
-\}
+      \  'variables': {'lang': 'ja'},
+      \  'html': {
+        \    'default_attributes': {
+          \      'option': {'value': v:null},
+          \      'textarea': {'id': v:null, 'name': v:null, 'cols': 10, 'rows': 10},
+          \    },
+          \    'snippets': {
+            \      'html:5': "<!DOCTYPE html>\n"
+            \              ."<html lang=\"${lang}\">\n"
+            \              ."<head>\n"
+            \              ."\t<meta charset=\"${charset}\">\n"
+            \              ."\t<title></title>\n"
+            \              ."\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+            \              ."</head>\n"
+            \              ."<body>\n\t${child}|\n</body>\n"
+            \              ."</html>",
+            \    },
+            \  },
+            \}
 
 " 基本配置
 lua require('setting')
-
-
