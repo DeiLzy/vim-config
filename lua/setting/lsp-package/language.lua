@@ -1,12 +1,12 @@
 -- In lsp attach function
 local opts = { noremap = true, silent = true }
-local null_ls = require("null-ls")
-local diagnostics = null_ls.builtins.diagnostics
-local codeActions = null_ls.builtins.code_actions
-local formatting = null_ls.builtins.formatting
+-- local null_ls = require("null-ls")
+-- local diagnostics = null_ls.builtins.diagnostics
+-- local codeActions = null_ls.builtins.code_actions
+-- local formatting = null_ls.builtins.formatting
 
-local buf_map = function(bufnr, mode, lhs, rhs, opts)
-  vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts or {
+local buf_map = function(bufnr, mode, lhs, rhs, opt)
+  vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opt or {
     silent = true,
     noremap = true,
   })
@@ -25,6 +25,7 @@ local on_attach = function(client, bufnr)
   vim.cmd("command! LspDiagNext lua vim.diagnostic.goto_next()")
   vim.cmd("command! LspDiagLine lua vim.diagnostic.open_float()")
   vim.cmd("command! LspSignatureHelp lua vim.lsp.buf.signature_help()")
+
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 

@@ -11,6 +11,11 @@ packer.startup({
       end
     }
 
+    -- 兼容 参数 高亮
+    use {
+      'm-demare/hlargs.nvim',
+      requires = { 'nvim-treesitter/nvim-treesitter' }
+    }
     -- use 'dense-analysis/ale'
 
     use 'jose-elias-alvarez/null-ls.nvim'

@@ -19,6 +19,9 @@ map("n", "<leader>e", ":NvimTreeToggle<CR>", opt)
 map("n", "<leader>r", ":NvimTreeRefresh<CR>", opt)
 map("n", "<leader>n", ":NvimTreeFindFile<CR>", opt)
 
+-- bufferline
+map("n", "gb", ":BufferLinePick<CR>", opt)
+
 -- 关闭当前
 map("n", "sc", "<C-w>c", opt)
 
