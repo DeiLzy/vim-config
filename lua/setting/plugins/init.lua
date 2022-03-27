@@ -32,6 +32,7 @@ packer.startup({
     use 'glepnir/dashboard-nvim'
 
     use "lukas-reineke/indent-blankline.nvim"
+    use 'lukas-reineke/lsp-format.nvim'
 
     use {
       'lewis6991/gitsigns.nvim',

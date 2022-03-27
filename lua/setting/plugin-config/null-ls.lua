@@ -8,5 +8,6 @@ null_ls.setup({
     diagnostics.eslint,
     codeActions.eslint,
     formatting.prettier,
+    formatting.rustfmt,
   },
 })

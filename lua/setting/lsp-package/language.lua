@@ -13,9 +13,10 @@ local buf_map = function(bufnr, mode, lhs, rhs, opt)
 end
 
 local on_attach = function(client, bufnr)
+  require "lsp-format".on_attach(client)
   vim.cmd("command! LspDef lua vim.lsp.buf.definition()")
   vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
-  vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
+  --vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
   vim.cmd("command! LspHover lua vim.lsp.buf.hover()")
   vim.cmd("command! LspRename lua vim.lsp.buf.rename()")
   vim.cmd("command! LspRefs lua vim.lsp.buf.references()")
@@ -39,14 +40,15 @@ local on_attach = function(client, bufnr)
   buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>")
   buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>")
 
-  if client.resolved_capabilities.document_formatting then
-    vim.cmd([[
-            augroup LspFormatting
-                autocmd! * <buffer>
-                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-            augroup END
-            ]])
-  end
+  -- if client.resolved_capabilities.document_formatting then
+  --   vim.cmd([[
+  --           augroup LspFormatting
+  --               autocmd! * <buffer>
+  --               autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+  --           augroup END
+  --           ]])
+  -- end
+
   client.resolved_capabilities.document_formatting = false
   client.resolved_capabilities.document_range_formatting = false
 
@@ -64,7 +66,8 @@ local on_attach = function(client, bufnr)
     )
   end
 
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.cmd [[cabbrev wq execute "lua vim.lsp.buf.formatting_seq_sync()" <bar> wq]]
 end
 
 local lsp_installer = require("nvim-lsp-installer")
