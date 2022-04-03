@@ -1,9 +1,5 @@
 -- In lsp attach function
 local opts = { noremap = true, silent = true }
--- local null_ls = require("null-ls")
--- local diagnostics = null_ls.builtins.diagnostics
--- local codeActions = null_ls.builtins.code_actions
--- local formatting = null_ls.builtins.formatting
 
 local buf_map = function(bufnr, mode, lhs, rhs, opt)
   vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opt or {

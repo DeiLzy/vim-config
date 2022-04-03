@@ -13,7 +13,6 @@ local cmp = require'cmp'
 local snip_status_ok, luasnip= pcall(require, 'luasnip')
 local lspkind = require('lspkind')
 
-
 require("luasnip.loaders.from_snipmate").lazy_load()
 
 cmp.setup({

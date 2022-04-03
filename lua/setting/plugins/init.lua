@@ -92,10 +92,11 @@ packer.startup({
     use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
 
     -- theme
-    use 'folke/tokyonight.nvim'
-    use 'joshdick/onedark.vim'
-    use 'sainnhe/sonokai'
-    use 'mhartington/oceanic-next'
+    use 'dracula/vim'
+    -- use 'folke/tokyonight.nvim'
+    -- use 'joshdick/onedark.vim'
+    -- use 'sainnhe/sonokai'
+    -- use 'mhartington/oceanic-next'
 
     use 'ryanoasis/vim-devicons'
 

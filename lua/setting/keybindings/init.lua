@@ -18,7 +18,7 @@ map("n", "sh", ":sp<CR>", opt)
 map("n", "<leader>e", ":NvimTreeToggle<CR>", opt)
 map("n", "<leader>r", ":NvimTreeRefresh<CR>", opt)
 map("n", "<leader>n", ":NvimTreeFindFile<CR>", opt)
-
+map("n", "<leader>f", ":NvimTreeFocus<CR>", opt)
 -- 关闭当前
 map("n", "sc", "<C-w>c", opt)
 
@@ -67,9 +67,9 @@ map("i", "<C-l>", "<ESC>A", opt)
 map("n", "<leader>h", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<leader>l", ":BufferLineCycleNext<CR>", opt)-- 关闭
 --  选择buffer
-map("n", "bp", ":BufferLinePick<CR>", opt)
+map("n", "<leader>b", ":BufferLinePick<CR>", opt)
 --"moll/vim-bbye"
-map("n", "bd", ":Bdelete!<CR>", opt)
+-- map("n", "bd", ":Bdelete!<CR>", opt)
 map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
 map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
 map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)

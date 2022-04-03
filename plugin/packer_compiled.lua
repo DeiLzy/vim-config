@@ -220,16 +220,6 @@ _G.packer_plugins = {
     path = "/Users/oops/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  ["oceanic-next"] = {
-    loaded = true,
-    path = "/Users/oops/.local/share/nvim/site/pack/packer/start/oceanic-next",
-    url = "https://github.com/mhartington/oceanic-next"
-  },
-  ["onedark.vim"] = {
-    loaded = true,
-    path = "/Users/oops/.local/share/nvim/site/pack/packer/start/onedark.vim",
-    url = "https://github.com/joshdick/onedark.vim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/oops/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -250,11 +240,6 @@ _G.packer_plugins = {
     path = "/Users/oops/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
   },
-  sonokai = {
-    loaded = true,
-    path = "/Users/oops/.local/share/nvim/site/pack/packer/start/sonokai",
-    url = "https://github.com/sainnhe/sonokai"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/oops/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -265,10 +250,10 @@ _G.packer_plugins = {
     path = "/Users/oops/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
-  ["tokyonight.nvim"] = {
+  vim = {
     loaded = true,
-    path = "/Users/oops/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
+    path = "/Users/oops/.local/share/nvim/site/pack/packer/start/vim",
+    url = "https://github.com/dracula/vim"
   },
   ["vim-bbye"] = {
     loaded = true,
@@ -309,14 +294,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
-time([[Config for which-key.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\nQ\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\23current_line_blame\2\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
+time([[Config for which-key.nvim]], false)
 if should_profile then save_profiles() end
 
 end)
