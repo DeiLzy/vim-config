@@ -49,7 +49,13 @@ packer.startup({
 
     use { 'tami5/lspsaga.nvim' }  -- nightly
 
-    use 'terrortylor/nvim-comment'
+    -- use 'terrortylor/nvim-comment'
+    use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+    }
 
     use 'norcalli/nvim-colorizer.lua'
 
@@ -93,6 +99,7 @@ packer.startup({
 
     -- theme
     use 'dracula/vim'
+    use { "ellisonleao/gruvbox.nvim" }
     -- use 'folke/tokyonight.nvim'
     -- use 'joshdick/onedark.vim'
     -- use 'sainnhe/sonokai'
