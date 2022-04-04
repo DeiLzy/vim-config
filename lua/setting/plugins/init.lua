@@ -29,6 +29,14 @@ packer.startup({
     -- }
 
 
+
+    -- rust-tools
+    use 'simrat39/rust-tools.nvim'
+    --  rust-tools-Debugging
+    use 'nvim-lua/plenary.nvim'
+    use 'mfussenegger/nvim-dap'
+
+
     use 'glepnir/dashboard-nvim'
 
     use "lukas-reineke/indent-blankline.nvim"
@@ -51,10 +59,10 @@ packer.startup({
 
     -- use 'terrortylor/nvim-comment'
     use {
-    'numToStr/Comment.nvim',
-    config = function()
+      'numToStr/Comment.nvim',
+      config = function()
         require('Comment').setup()
-    end
+      end
     }
 
     use 'norcalli/nvim-colorizer.lua'
@@ -91,9 +99,19 @@ packer.startup({
     use 'akinsho/toggleterm.nvim'
 
     use {
-      'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate'
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v2.x",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
+      },
     }
+
+    -- use {
+    --   'nvim-treesitter/nvim-treesitter',
+    --   run = ':TSUpdate'
+    -- }
 
     use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
 

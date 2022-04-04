@@ -15,10 +15,20 @@ map("n", "sv", ":vsp<CR>", opt)
 map("n", "sh", ":sp<CR>", opt)
 
 -- nvim-tree
-map("n", "<leader>e", ":NvimTreeToggle<CR>", opt)
-map("n", "<leader>r", ":NvimTreeRefresh<CR>", opt)
-map("n", "<leader>n", ":NvimTreeFindFile<CR>", opt)
-map("n", "<leader>f", ":NvimTreeFocus<CR>", opt)
+-- map("n", "<leader>e", ":NvimTreeToggle<CR>", opt)
+-- map("n", "<leader>r", ":NvimTreeRefresh<CR>", opt)
+-- map("n", "<leader>n", ":NvimTreeFindFile<CR>", opt)
+-- map("n", "<leader>f", ":NvimTreeFocus<CR>", opt)
+
+-- neo-tree
+-- map("n", "<leader>e", ":Neotree<CR>", opt)
+-- 打开焦点不离开当前
+map("n", "<leader>e", ":Neotree show<CR>", opt)
+-- 打开并且聚焦文件栏
+map("n", "<leader>f", ":Neotree focus<CR>", opt)
+-- 关闭
+map("n", "<leader>c", ":Neotree close<CR>", opt)
+
 -- 关闭当前
 map("n", "sc", "<C-w>c", opt)
 
@@ -29,7 +39,7 @@ map("n", "˙", "<C-w>h", opt)
 map("n", "∆", "<C-w>j", opt)
 map("n", "˚", "<C-w>k", opt)
 map("n", "¬", "<C-w>l", opt)
---
+
 -- 左右比例控制
 -- map("n", "<C-Left>", ":vertical resize -2<CR>", opt)
 -- map("n", "<C-Right>", ":vertical resize +2<CR>", opt)
@@ -66,6 +76,7 @@ map("i", "<C-l>", "<ESC>A", opt)
 -- 左右Tab切换
 map("n", "<leader>h", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<leader>l", ":BufferLineCycleNext<CR>", opt)-- 关闭
+
 --  选择buffer
 map("n", "<leader>b", ":BufferLinePick<CR>", opt)
 --"moll/vim-bbye"
@@ -73,6 +84,7 @@ map("n", "<leader>b", ":BufferLinePick<CR>", opt)
 map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
 map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
 map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
+
 -- Telescope
 -- 查找文件
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
