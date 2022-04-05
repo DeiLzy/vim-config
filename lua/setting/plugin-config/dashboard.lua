@@ -1,15 +1,13 @@
 
 
 vim.g.dashboard_default_executive = "telescope"
-vim.g.dashboard_custom_footer = { "人生南北多歧路，将相神仙也要凡人做"}
+vim.g.dashboard_custom_footer = { ""}
 
 vim.g.dashboard_custom_section = {
-  a = { description = {"😋 同步插件          " }, command = "PackerSync" },
-  b = { description = {"  最近文件          " }, command = "Telescope oldfiles" },
-  c = { description = {"  项目              " }, command = "Telescope projects" },
-  e = { description = {"  编辑项目列表      " }, command = "edit ~/.local/share/nvim/project_nvim/project_history", },
-  f = { description = {"  键位              " }, command = "edit ~/.config/nvim/lua/setting/keybindings/init.lua" },
-  h = { description = {"  更换主题          " }, command = 'Telescope colorscheme'},
+  a = { description = {"P-Sync              " }, command = "PackerSync" },
+  b = { description = {"F-Recent            " }, command = "Telescope oldfiles" },
+  f = { description = {"S-Keys              " }, command = "edit ~/.config/nvim/lua/setting/keybindings/init.lua" },
+  h = { description = {"S-Theme             " }, command = 'Telescope colorscheme'},
 }
 
 vim.g.dashboard_custom_header = {

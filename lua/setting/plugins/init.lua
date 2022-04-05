@@ -31,10 +31,15 @@ packer.startup({
 
 
     -- rust-tools
-    use 'simrat39/rust-tools.nvim'
-    --  rust-tools-Debugging
-    use 'nvim-lua/plenary.nvim'
-    use 'mfussenegger/nvim-dap'
+    use {
+      'simrat39/rust-tools.nvim',
+      --  rust-tools-Debugging
+      requires = { 'nvim-lua/plenary.nvim','mfussenegger/nvim-dap' },
+      config = function()
+        require('rust-tools').setup{}
+        require('rust-tools.runnables').runnables()
+      end
+    }
 
 
     use 'glepnir/dashboard-nvim'

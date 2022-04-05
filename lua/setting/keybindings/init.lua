@@ -76,7 +76,6 @@ map("i", "<C-l>", "<ESC>A", opt)
 -- 左右Tab切换
 map("n", "<leader>h", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<leader>l", ":BufferLineCycleNext<CR>", opt)-- 关闭
-
 --  选择buffer
 map("n", "<leader>b", ":BufferLinePick<CR>", opt)
 --"moll/vim-bbye"
@@ -90,6 +89,10 @@ map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
 -- 全局搜索
 map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
+
+
+-- eslint fix all
+map("n", "<leader>f", ":EslintFixAll<CR>", opt)
 
 -- Telescope 列表中 插入模式快捷键
 telescopeList = {
