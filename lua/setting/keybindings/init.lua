@@ -77,11 +77,12 @@ map("i", "<C-l>", "<ESC>A", opt)
 map("n", "<leader>h", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<leader>l", ":BufferLineCycleNext<CR>", opt)-- 关闭
 --  选择buffer
-map("n", "<leader>b", ":BufferLinePick<CR>", opt)
+map("n", "<leader>p", ":BufferLinePick<CR>", opt)
 --"moll/vim-bbye"
 -- map("n", "bd", ":Bdelete!<CR>", opt)
 map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
 map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
+map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
 map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
 
 -- Telescope
@@ -92,7 +93,7 @@ map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
 
 
 -- eslint fix all
-map("n", "<leader>f", ":EslintFixAll<CR>", opt)
+map("n", "<leader>s", ":EslintFixAll<CR>", opt)
 
 -- Telescope 列表中 插入模式快捷键
 telescopeList = {
@@ -115,25 +116,25 @@ telescopeList = {
 
 
 -- Map compe confirm and complete functions
-vim.api.nvim_set_keymap('i', '<cr>', 'compe#confirm("<cr>")', { expr = true })
-vim.api.nvim_set_keymap('i', '<c-space>', 'compe#complete()', { expr = true })
+map('i', '<cr>', 'compe#confirm("<cr>")', { expr = true })
+map('i', '<c-space>', 'compe#complete()', { expr = true })
 
 -- Trouble
-vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>",
-  {silent = true, noremap = true}
-)
+-- map("n", "<leader>xx", "<cmd>Trouble<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- map("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- map("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- map("n", "<leader>xl", "<cmd>Trouble loclist<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- map("n", "gR", "<cmd>Trouble lsp_references<cr>",
+--   {silent = true, noremap = true}
+-- )

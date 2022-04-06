@@ -12,7 +12,7 @@ local on_attach = function(client, bufnr)
   require "lsp-format".on_attach(client)
   vim.cmd("command! LspDef lua vim.lsp.buf.definition()")
   vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
-  --vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
+  vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
   vim.cmd("command! LspHover lua vim.lsp.buf.hover()")
   vim.cmd("command! LspRename lua vim.lsp.buf.rename()")
   vim.cmd("command! LspRefs lua vim.lsp.buf.references()")
@@ -32,7 +32,6 @@ local on_attach = function(client, bufnr)
   buf_map(bufnr, "n", "K", ":LspHover<CR>")
   buf_map(bufnr, "n", "[a", ":LspDiagPrev<CR>")
   buf_map(bufnr, "n", "]a", ":LspDiagNext<CR>")
-  buf_map(bufnr, "n", "ga", ":LspCodeAction<CR>")
   buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>")
   buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>")
 
@@ -63,6 +62,7 @@ local on_attach = function(client, bufnr)
   end
 
   -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.cmd [[cabbrev w execute "lua vim.lsp.buf.formatting_seq_sync()" <bar> w]]
   vim.cmd [[cabbrev wq execute "lua vim.lsp.buf.formatting_seq_sync()" <bar> wq]]
 end
 
