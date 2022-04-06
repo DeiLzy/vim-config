@@ -73,16 +73,16 @@ map("i", "<C-h>", "<ESC>I", opt)
 map("i", "<C-l>", "<ESC>A", opt)
 
 -- bufferline
--- 左右Tab切换
-map("n", "<leader>h", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<leader>l", ":BufferLineCycleNext<CR>", opt)-- 关闭
+-- 左右buffer切换
+-- map("n", "<leader>h", ":BufferLineCyclePrev<CR>", opt)
+-- map("n", "<leader>l", ":BufferLineCycleNext<CR>", opt)-- 关闭
 --  选择buffer
 map("n", "<leader>p", ":BufferLinePick<CR>", opt)
+
 --"moll/vim-bbye"
--- map("n", "bd", ":Bdelete!<CR>", opt)
-map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
-map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
-map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
+map("n", "bd", ":Bdelete!<CR>", opt)
+-- map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
+-- map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
 map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
 
 -- Telescope
