@@ -31,6 +31,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
   buf_map(bufnr, "n", "gd", ":LspDef<CR>")
+  buf_map(bufnr, "n", "gi", ":LspRefs<CR>")
   buf_map(bufnr, "n", "gr", ":LspRename<CR>")
   buf_map(bufnr, "n", "gy", ":LspTypeDef<CR>")
   buf_map(bufnr, "n", "gh", ":LspsagaHover<CR>")
