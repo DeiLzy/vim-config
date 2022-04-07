@@ -78,9 +78,10 @@ map("i", "<C-l>", "<ESC>A", opt)
 -- map("n", "<leader>l", ":BufferLineCycleNext<CR>", opt)-- 关闭
 --  选择buffer
 map("n", "<leader>p", ":BufferLinePick<CR>", opt)
+map("n", "<leader>bf", ":buffer", opt)
 
 --"moll/vim-bbye"
-map("n", "bd", ":Bdelete!<CR>", opt)
+map("n", "<leader>bd", ":Bdelete!<CR>", opt)
 -- map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
 -- map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
 map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
