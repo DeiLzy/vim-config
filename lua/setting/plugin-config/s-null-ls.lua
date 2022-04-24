@@ -7,8 +7,8 @@ local completion = null_ls.builtins.completion
 null_ls.setup({
   debug  = false,
   sources = {
-   diagnostics.eslint,
-    codeActions.eslint,
+    diagnostics.eslint.with({}),
+    codeActions.eslint.with({}),
     completion.spell,
     formatting.prettier,
     formatting.rustfmt,

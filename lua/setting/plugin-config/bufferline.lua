@@ -13,7 +13,7 @@ bufferline.setup({
     close_command = "Bdelete! %d",
     numbers=function(opts)
       return string.format('%s·%s', opts.raise(opts.id), opts.lower(opts.ordinal))
-    end,    
+    end,
     styling =  'slant',
     separator_style='slant',
     right_mouse_command = "Bdelete! %d",

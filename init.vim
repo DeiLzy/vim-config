@@ -7,6 +7,8 @@ cnoremap <C-p> <up>
 
 set clipboard+=unnamed
 
+set guifont=Hasklug\ Nerd:h17
+
 " ========= gitblame settings ==========
 let g:gitblame_enabled = 1
 let g:gitblame_message_template = '     ◆ <summary> • <date> • <author>     '

@@ -54,19 +54,19 @@ cmp.setup({
     end, { "i", "s" }),
   },
   sources = cmp.config.sources(
-  {
-    { name = 'luasnip'},
-    { name = 'buffer' },
-    { name ='path'}
+    {
+      { name = 'luasnip'},
+      { name = 'buffer' },
+      { name ='path'}
     }
   ),
   sources = cmp.config.sources({
-  { name = 'nvim_lsp' },
-  { name = 'luasnip' }, 
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' }, 
   }, {
-    { name = 'buffer' },
+      { name = 'buffer' },
     }, {
-    { name = 'path' },
+      { name = 'path' },
     }),
   formatting = {
     fileds =  {'menu' },
@@ -84,8 +84,10 @@ cmp.setup({
       return vim_item
     end
   },
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  window = {
+    documentation = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    },
   },
   experimental = {
     ghost_text = false,
@@ -96,9 +98,9 @@ cmp.setup({
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
   sources = cmp.config.sources({
-  { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
   }, {
-    { name = 'buffer' },
+      { name = 'buffer' },
     })
 })
 
@@ -112,8 +114,8 @@ cmp.setup.cmdline('/', {
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
   sources = cmp.config.sources({
-  { name = 'path' }
+    { name = 'path' }
   }, {
-    { name = 'cmdline' }
+      { name = 'cmdline' }
     })
 })

@@ -11,6 +11,9 @@ packer.startup({
       end
     }
 
+    -- diffView
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
     -- 兼容 参数 高亮
     use {
       'm-demare/hlargs.nvim',
@@ -19,6 +22,7 @@ packer.startup({
     -- use 'dense-analysis/ale'
 
     use 'jose-elias-alvarez/null-ls.nvim'
+    use({ "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" })
 
     -- use {
     --   "folke/trouble.nvim",
@@ -102,16 +106,16 @@ packer.startup({
     use 'christoomey/vim-tmux-navigator'
 
     use 'akinsho/toggleterm.nvim'
-
-    use {
-      "nvim-neo-tree/neo-tree.nvim",
-      branch = "v2.x",
-      requires = {
-        "nvim-lua/plenary.nvim",
-        "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-        "MunifTanjim/nui.nvim",
-      },
-    }
+    
+    -- use {
+    --   "nvim-neo-tree/neo-tree.nvim",
+    --   branch = "v2.x",
+    --   requires = {
+    --     "nvim-lua/plenary.nvim",
+    --     "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+    --     "MunifTanjim/nui.nvim",
+    --   },
+    -- }
 
     -- use {
     --   'nvim-treesitter/nvim-treesitter',
