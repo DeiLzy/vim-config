@@ -15,7 +15,8 @@ end
 local on_attach = function(client, bufnr)
   require "lsp-format".on_attach(client)
   vim.cmd("command! LspDef lua vim.lsp.buf.definition()")
-  vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
+  -- vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
+  vim.cmd("command! LspFormatting lua vim.lsp.buf.format()")
   vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
   vim.cmd("command! LspHover lua vim.lsp.buf.hover()")
   -- vim.cmd("command! LspRename lua vim.lsp.buf.rename()")
@@ -44,21 +45,12 @@ local on_attach = function(client, bufnr)
   buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>")
   buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>")
 
-  -- if client.resolved_capabilities.document_formatting then
-  --   vim.cmd([[
-  --           augroup LspFormatting
-  --               autocmd! * <buffer>
-  --               autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-  --           augroup END
-  --           ]])
-  -- end
-
   -- disable lsp format
-  client.resolved_capabilities.document_formatting = false
-  client.resolved_capabilities.document_range_formatting = false
+  client.server_capabilities.document_formatting = false
+  client.server_capabilities.document_range_formatting = false
 
   -- doc
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.document_highlight then
     vim.api.nvim_exec(
       [[
       augroup lsp_document_highlight

@@ -7,10 +7,31 @@ local completion = null_ls.builtins.completion
 null_ls.setup({
   debug  = false,
   sources = {
-    diagnostics.eslint.with({}),
-    codeActions.eslint.with({}),
+    diagnostics.eslint.with({
+     prefer_local = "node_modules/.bin",
+    }),
+    codeActions.eslint.with({
+     prefer_local = "node_modules/.bin",
+    }),
     completion.spell,
-    formatting.prettier,
+    formatting.prettier.with({
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "css",
+        "scss",
+        "less",
+        "html",
+        "json",
+        "yaml",
+        "graphql",
+      },
+      prefer_local = "node_modules/.bin",
+    }),
     formatting.rustfmt,
+    formatting.stylua,
   },
 })

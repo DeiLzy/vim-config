@@ -15,6 +15,15 @@ let g:gitblame_message_template = '     ◆ <summary> • <date> • <author>   
 let g:gitblame_date_format = '%r'
 highlight default link Visual default
 
+" Jump to matching pairs easily in normal mode
+nnoremap <Tab> %
+
+" Always use very magic mode for searching
+nnoremap / /\v
+
+" Search in selected region
+xnoremap / :<C-U>call feedkeys('/\%>'.(line("'<")-1).'l\%<'.(line("'>")+1)."l")<CR>
+
 " Give more space for displaying messages.
 set cmdheight=2
 

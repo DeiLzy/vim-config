@@ -4,6 +4,10 @@ packer.startup({
     -- Packer 可以管理自己本身
     use 'wbthomason/packer.nvim'
 
+    -- markdown
+    use 'nvim-orgmode/orgmode'
+
+    
     use {
       "folke/which-key.nvim",
       config = function()
@@ -92,7 +96,7 @@ packer.startup({
     use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
 
     -- bufferline (新增)
-    use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" }})
+    use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
 
     use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
     use 'williamboman/nvim-lsp-installer'
@@ -106,27 +110,31 @@ packer.startup({
     use 'christoomey/vim-tmux-navigator'
 
     use 'akinsho/toggleterm.nvim'
-    
-    -- use {
-    --   "nvim-neo-tree/neo-tree.nvim",
-    --   branch = "v2.x",
-    --   requires = {
-    --     "nvim-lua/plenary.nvim",
-    --     "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-    --     "MunifTanjim/nui.nvim",
-    --   },
-    -- }
+
+    use {
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v2.x",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
+      },
+    }
 
     -- use {
     --   'nvim-treesitter/nvim-treesitter',
     --   run = ':TSUpdate'
     -- }
 
-    use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
+    -- use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
 
     -- theme
+    use("folke/tokyonight.nvim")
+    use("mhartington/oceanic-next")
     use 'dracula/vim'
     use { "ellisonleao/gruvbox.nvim" }
+    use "EdenEast/nightfox.nvim" 
+
     -- use 'folke/tokyonight.nvim'
     -- use 'joshdick/onedark.vim'
     -- use 'sainnhe/sonokai'
@@ -152,7 +160,7 @@ packer.startup({
   end,
   config = {
     -- 并发数限制
-    max_jobs = 16,
+    max_jobs = 4,
     -- 自定义源
     git = {
       -- default_url_format = "https://hub.fastgit.xyz/%s",
@@ -168,12 +176,12 @@ packer.startup({
   },
 })
 -- 每次保存 plugins.lua 自动安装插件
-pcall(
-  vim.cmd,
-  [[
-    augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-    augroup end
-  ]]
-)
+-- pcall(
+--   vim.cmd,
+--   [[
+--     augroup packer_user_config
+--     autocmd!
+--     autocmd BufWritePost plugins.lua source <afile> | PackerSync
+--     augroup end
+--   ]]
+-- )

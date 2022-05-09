@@ -1,7 +1,9 @@
 local wk = require("which-key")
 local mappings = {
-  qa = {":qa!<cr>", "退出所有" },
-  w = {":wqa<cr>", "保存并退出所有" },
+  q = {":q!<cr>", "退出" },
+  Q = {":qa!<cr>", "退出所有" },
+  w = {":wq<cr>", "保存并退出" },
+  W = {":wqa<cr>", "保存退出所有" },
   E = {":e ~/.config/nvim/init.vim<cr>", "编辑init.vim" },
   L = {
     name = 'LSP',
